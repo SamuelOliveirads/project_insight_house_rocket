@@ -283,8 +283,8 @@ def region_overview(data, geofile):
     marker_cluster = MarkerCluster().add_to(density_map)
     for name, row in df.iterrows():
         folium.Marker([row['lat'], row['long']],
-                      popup='Sold R${0}'
-                      .format(row['price'])).add_to(marker_cluster)
+                      popup='Id: {0}, Sold: ${1}, Zipcode: {2}'
+                      .format(row['id'], row['price'], row['zipcode'])).add_to(marker_cluster)
 
     with c1:
         folium_static(density_map)
